@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package greyvarproto;
+
+message ClientRequests {
+	MoveRequest moveRequest = 1;
+}
+
+message MoveRequest {
+	int32 playerId = 1;
+	int32 x = 2;
+	int32 y = 3;
+}
+
+message ConnectionRequest {
+}
+
+message NewPlayer {	
+	string username = 1;
+}

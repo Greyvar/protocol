@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package greyvarproto;
+
+message ServerFrameResponse {
+	MoveResponse moveResponse = 1;
+	EntityMoved entityMoved = 2;
+	EntitySpawn entitySpawn = 3;
+	PlayerQuit playerQuit = 4;
+	PlayerAlreadyHere playerAlreadyHere = 5;
+	PlayerJoined playerJoined = 6;
+	PlayerYou playerYou = 7;
+	Tile singleTileChange = 8;
+	Grid grid = 9;
+}
+
+message MoveResponse {
+	int32 playerId = 1;
+}
+
+message EntityMoved {
+	int32 entityId = 1;
+}
+
+message EntitySpawn {
+	int32 entityId = 1;
+	int32 x = 2;
+	int32 y = 3;
+	int32 w = 4;
+	int32 h = 5;
+	string texture = 6;
+}
+
+message PlayerQuit {
+	int32 playerId = 1;
+}
+
+message PlayerAlreadyHere {
+	int32 playerId = 1; 
+}
+
+message PlayerJoined {
+	string username = 1;
+}
+
+message PlayerYou {
+	int32 playerId = 1; 
+}
+
+message Tile {
+	int32 col = 1;
+	int32 row = 2;
+	string tex = 3;
+	bool flipH = 4;
+	bool flipV = 5;
+	int32 rot = 6;
+}
+
+message Grid {
+	string title = 1;
+	repeated Tile tiles = 2;
+}
+
+message ConnectionResponse {
+	string serverVersion = 1;
+}
+
+message NoResponse {}
