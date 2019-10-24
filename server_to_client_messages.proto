@@ -3,19 +3,22 @@ syntax = "proto3";
 package greyvarproto;
 
 message ServerFrameResponse {
-	MoveResponse moveResponse = 1;
+	repeated PlayerFrame playerFrames = 1;
 	EntityMoved entityMoved = 2;
 	EntitySpawn entitySpawn = 3;
-	PlayerQuit playerQuit = 4;
-	PlayerAlreadyHere playerAlreadyHere = 5;
-	PlayerJoined playerJoined = 6;
-	PlayerYou playerYou = 7;
-	Tile singleTileChange = 8;
-	Grid grid = 9;
+	PlayerJoined playerJoined = 4;
+	Tile singleTileChange = 5;
+	Grid grid = 6;
+}
+
+message PlayerFrame {
+	int32 playerId = 1;
+	MoveResponse moveResponse = 2;
+	PlayerQuit playerQuit = 3;
+	PlayerYou playerYou = 4;
 }
 
 message MoveResponse {
-	int32 playerId = 1;
 }
 
 message EntityMoved {
@@ -48,8 +51,8 @@ message PlayerYou {
 }
 
 message Tile {
-	int32 col = 1;
-	int32 row = 2;
+	uint32 col = 1;
+	uint32 row = 2;
 	string tex = 3;
 	bool flipH = 4;
 	bool flipV = 5;
@@ -63,6 +66,7 @@ message Grid {
 
 message ConnectionResponse {
 	string serverVersion = 1;
+	repeated PlayerAlreadyHere playerAlreadyHere = 5;
 }
 
 message NoResponse {}
