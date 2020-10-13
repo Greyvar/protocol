@@ -9,5 +9,5 @@ default:
 	protoc server_to_client_messages.proto --go_out=plugins=grpc:server_go
 	rm -f ~/sandbox/greyvar-server/pkg/greyvarproto/*
 	cp server_go/* ~/sandbox/greyvar-server/pkg/greyvarproto/
-	rm -f ~/sandbox/greyvar-client/src/net/*
-	cp client_cpp/* ~/sandbox/greyvar-client/src/net/
+	rm -f ~/sandbox/greyvar-engine/pub/net/proto/*
+	cp client_cpp/* ~/sandbox/greyvar-engine/pub/net/proto/
