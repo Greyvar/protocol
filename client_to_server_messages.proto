@@ -4,6 +4,7 @@ package greyvarproto;
 
 message ClientRequests {
 	MoveRequest moveRequest = 1;
+	uint32 playerId = 2;
 }
 
 message MoveRequest {
@@ -17,4 +18,5 @@ message ConnectionRequest {
 
 message NewPlayer {	
 	string username = 1;
+	uint32 playerId = 2;
 }
