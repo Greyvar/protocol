@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package greyvarproto;
-
-import "server_interface.proto";
-import "client_interface.proto";
-
-

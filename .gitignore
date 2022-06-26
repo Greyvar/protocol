@@ -1,2 +1,7 @@
 client_cpp
 server_go
+**/*.swp
+**/*.swo
+client_js
+server_go
+greyvarproto.js
