@@ -51,6 +51,7 @@ message EntityDefinition {
 	string name = 1;
 	string initialState = 2;
 	repeated EntityState states = 3;
+	string texture = 4;
 }
 
 message EntityState {
