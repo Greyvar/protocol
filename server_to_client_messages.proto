@@ -86,6 +86,8 @@ message Tile {
 message Grid {
 	string title = 1;
 	repeated Tile tiles = 2;
+	uint32 rowCount = 3;
+	uint32 colCount = 4;
 }
 
 message ConnectionResponse {
