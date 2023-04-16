@@ -5,7 +5,6 @@ option go_package = "gen/greyvarprotocol";
 package greyvarproto;
 
 message ServerUpdate {
-	repeated PlayerFrame playerFrames = 1;
 	repeated EntityPosition entityPositions = 2;
 	repeated EntitySpawn entitySpawns = 3;
 	PlayerJoined playerJoined = 4;
@@ -13,16 +12,7 @@ message ServerUpdate {
 	Grid grid = 6;
 	ConnectionResponse connectionResponse = 7;
 	repeated EntityDefinition entityDefinitions = 8;
-}
-
-message PlayerFrame {
-	int64 playerId = 1;
-	MoveResponse moveResponse = 2;
-	PlayerQuit playerQuit = 3;
-	PlayerYou playerYou = 4;
-}
-
-message MoveResponse {
+	repeated EntityStateChange entityStateChanges = 9;
 }
 
 message EntityPosition {
@@ -42,14 +32,13 @@ message EntitySpawn {
 	int32 y = 3;
 	int32 w = 4;
 	int32 h = 5;
-	string texture = 6;
 	uint32 primaryColor = 7;
 	string definition = 9;
+	string initialState = 10;
 }
 
 message EntityDefinition {
 	string name = 1;
-	string initialState = 2;
 	repeated EntityState states = 3;
 	string texture = 4;
 }
