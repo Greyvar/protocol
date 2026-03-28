@@ -1,14 +1,11 @@
 generate:
 	buf generate
 
-default:  generate
-	mkdir -p server_go
+install:  generate
 	rm -f ../server/gen/greyvarprotocol/*
-	cp -r server_go/* ../server/
-	pbjs *.proto -t static-module -w es6 --es6 --no-comments --no-beautify -r 'roots' > greyvarproto.js
-	rm -rf ../webclient/src/js/greyvarproto.js
-	cp -r greyvarproto.js ../webclient/src/js/
-
+	cp -r out/go/* ../server/
+	rm -rf ../webclient/src/js/gen
+	cp -r out/js/* ../webclient/js/gen/
+	
 clean:
-	rm -rf server_go/*
-	rm -f greyvarproto.js
+	rm -rf out/

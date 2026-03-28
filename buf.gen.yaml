@@ -1,4 +1,10 @@
-version: v1
+version: v2
 plugins: 
-  - name: go
-    out: server_go/
+  - remote: buf.build/protocolbuffers/go
+    out: out/go/
+
+  - remote: buf.build/connectrpc/go
+    out: out/go/
+
+  - remote: buf.build/bufbuild/es
+    out: out/js/
