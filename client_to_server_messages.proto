@@ -7,6 +7,8 @@ package greyvarproto;
 message ClientRequests {
 	RegistrationRequest registrationRequest = 1;
 	MoveRequest moveRequest = 2;
+	WorldListRequest worldListRequest = 3;
+	WorldLoadRequest worldLoadRequest = 4;
 }
 
 message MoveRequest {
@@ -20,4 +22,10 @@ message ConnectionRequest {
 
 message RegistrationRequest {	
 	string username = 1;
+}
+
+message WorldListRequest {}
+
+message WorldLoadRequest {
+	string worldId = 1;
 }

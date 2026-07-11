@@ -13,6 +13,9 @@ message ServerUpdate {
 	ConnectionResponse connectionResponse = 7;
 	repeated EntityDefinition entityDefinitions = 8;
 	repeated EntityStateChange entityStateChanges = 9;
+	repeated int64 entityDespawns = 10;
+	WorldListResponse worldListResponse = 11;
+	ConsoleMessage consoleMessage = 12;
 }
 
 message EntityPosition {
@@ -58,6 +61,7 @@ message PlayerAlreadyHere {
 
 message PlayerJoined {
 	string username = 1;
+	int64 entityId = 2;
 }
 
 message PlayerYou {
@@ -71,6 +75,22 @@ message Tile {
 	bool flipH = 4;
 	bool flipV = 5;
 	int32 rot = 6;
+	string atlasKey = 7;
+	int32 frameIndex = 8;
+}
+
+message Tileset {
+	string key = 1;
+	string image = 2;
+	uint32 tileWidth = 3;
+	uint32 tileHeight = 4;
+	uint32 columns = 5;
+}
+
+message GridTransition {
+	string fromGridId = 1;
+	int32 scrollDeltaX = 2;
+	int32 scrollDeltaY = 3;
 }
 
 message Grid {
@@ -78,11 +98,30 @@ message Grid {
 	repeated Tile tiles = 2;
 	uint32 rowCount = 3;
 	uint32 colCount = 4;
+	string gridId = 5;
+	string worldId = 6;
+	repeated Tileset tilesets = 7;
+	GridTransition transition = 8;
 }
 
 message ConnectionResponse {
 	string serverVersion = 1;
 	repeated PlayerAlreadyHere playerAlreadyHere = 5;
+}
+
+message WorldSummary {
+	string worldId = 1;
+	string title = 2;
+	uint32 gridCount = 3;
+	string spawnGrid = 4;
+}
+
+message WorldListResponse {
+	repeated WorldSummary worlds = 1;
+}
+
+message ConsoleMessage {
+	string text = 1;
 }
 
 message NoResponse {}

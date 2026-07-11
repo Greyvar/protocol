@@ -3,8 +3,5 @@ plugins:
   - remote: buf.build/protocolbuffers/go
     out: out/go/
 
-  - remote: buf.build/connectrpc/go
-    out: out/go/
-
   - remote: buf.build/bufbuild/es
     out: out/js/
